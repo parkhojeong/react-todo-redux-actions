@@ -20,13 +20,13 @@ class TodoInputContainer extends Component {
   };
 
   handleInsert = () => {
-    const { InputActions, TodoActions, value } = this.props;
+    const { InputActions, TodosActions, value } = this.props;
     const todo = {
       id: this.getId(),
       text: value,
       done: false,
     };
-    TodoActions.insert(todo);
+    TodosActions.insert(todo);
     InputActions.setInput("");
   };
 
@@ -49,6 +49,6 @@ export default connect(
   }),
   (dispatch) => ({
     InputActions: bindActionCreators(inputActions, dispatch),
-    TodoActions: bindActionCreators(todoActions, dispatch),
+    TodosActions: bindActionCreators(todoActions, dispatch),
   })
 )(TodoInputContainer);
